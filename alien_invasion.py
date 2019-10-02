@@ -21,7 +21,7 @@ def run_game():
 
     # Start Music
     pygame.mixer.music.load("Sounds/theme.mp3")
-    pygame.mixer.music.play(0)
+    pygame.mixer.music.play()
 
     # Make the Play button.
     play_button = Button(ai_settings, screen, "Play")
