@@ -1,5 +1,11 @@
 import pygame
 from pygame.sprite import Sprite
+import time
+
+
+def load_image(name):
+    image = pygame.image.load(name)
+    return image
 
 
 class Alien(Sprite):
@@ -12,7 +18,11 @@ class Alien(Sprite):
         self.ai_settings = ai_settings
 
         # Load the alien image and set its rect attribute.
-        self.image = pygame.image.load('images/alien.bmp').convert()
+        self.images = []
+        self.images.append(load_image("Images/Alien1-1.png"))
+        self.images.append(load_image("Images/Alien1-2.png"))
+        self.index = 0
+        self.image = self.images[self.index]
         self.rect = self.image.get_rect()
 
         # Start each new alien near the top left of the screen.
@@ -39,3 +49,8 @@ class Alien(Sprite):
         self.x += (self.ai_settings.alien_speed_factor *
                    self.ai_settings.fleet_direction)
         self.rect.x = self.x
+        self.index += 1
+        if self.index >= len(self.images):
+            self.index = 0
+        self.image = self.images[self.index]
+
