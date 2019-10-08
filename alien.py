@@ -10,6 +10,9 @@ def load_image(name):
 
 class Alien(Sprite):
 
+    image1 = ""
+    image2 = ""
+
     """A class to represent a single alien in the fleet."""
     def __init__(self, ai_settings, screen):
         """Initialize the alien and set its starting position."""
@@ -19,8 +22,8 @@ class Alien(Sprite):
 
         # Load the alien image and set its rect attribute.
         self.images = []
-        self.images.append(load_image("Images/Alien1-1.png"))
-        self.images.append(load_image("Images/Alien1-2.png"))
+        self.images.append(load_image(self.image1))
+        self.images.append(load_image(self.image2))
         self.index = 0
         self.image = self.images[self.index]
         self.rect = self.image.get_rect()
@@ -31,6 +34,7 @@ class Alien(Sprite):
 
         # Store the alien's exact position.
         self.x = float(self.rect.x)
+
 
     def blitme(self):
         """Draw the alien at its current location."""
@@ -54,3 +58,20 @@ class Alien(Sprite):
             self.index = 0
         self.image = self.images[self.index]
 
+
+class Alien1(Alien):
+    image1 = "Images/Alien1-1.png"
+    image2 = "Images/Alien1-2.png"
+    score = 150
+
+
+class Alien2(Alien):
+    image1 = "Images/Alien2-1.png"
+    image2 = "Images/Alien2-2.png"
+    score = 100
+
+
+class Alien3(Alien):
+    image1 = "Images/Alien3-1.png"
+    image2 = "Images/Alien3-2.png"
+    score = 50

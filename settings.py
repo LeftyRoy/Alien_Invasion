@@ -20,14 +20,14 @@ class Settings:
         self.bullets_allowed = 8
 
         # Alien settings
-        self.alien_speed_factor = 0.1
-        self.fleet_drop_speed = 10
+        self.alien_speed_factor = 2
+        self.fleet_drop_speed = 20
 
         # fleet_direction of 1 represents right; -1 represents left.
         self.fleet_direction = 1
 
         # How quickly the game speeds up
-        self.speedup_scale = 1.1
+        self.speedup_scale = 1.5
         # How quickly the alien point values increase
         self.score_scale = 1.5
 
