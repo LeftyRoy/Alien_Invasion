@@ -1,5 +1,3 @@
-import sys
-
 import pygame
 
 from pygame.sprite import Group
@@ -9,7 +7,6 @@ from scoreboard import Scoreboard
 from button import Button, HighScoreButton
 from ship import Ship
 import game_functions as gf
-import time
 
 black = (0, 0, 0)
 white = (255, 255, 255)
@@ -23,7 +20,6 @@ pygame.display.set_caption("Alien Invasion")
 
 # Start Music
 pygame.mixer.music.load("Sounds/theme.mp3")
-pygame.mixer.music.play(-1)
 
 # Make the Play button.
 play_button = Button(ai_settings, screen, "Play")
@@ -56,8 +52,8 @@ def alien_pics(image, x1, y1):
 
 
 def text_objects(text, font):
-    screen = font.render(text, True, white)
-    return screen, screen.get_rect()
+    screen_ = font.render(text, True, white)
+    return screen_, screen_.get_rect()
 
 
 def game_menu():
@@ -92,6 +88,7 @@ def game_menu():
         for event in pygame.event.get():
             if event.type == pygame.MOUSEBUTTONDOWN:
                 mouse_x, mouse_y = pygame.mouse.get_pos()
+                gf.check_score_button(stats, score_button, mouse_x, mouse_y)
                 gf.check_play_button(ai_settings, screen, stats, sb, play_button,
                                      ship, aliens, bullets, mouse_x, mouse_y)
                 game_loop()
@@ -120,5 +117,6 @@ def game_loop():
                          bullets, play_button)
 
 
+pygame.mixer.music.play(-1)
 game_menu()
 game_loop()

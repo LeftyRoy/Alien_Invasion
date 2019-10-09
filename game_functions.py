@@ -4,12 +4,17 @@ from time import sleep
 import pygame
 from bullet import Bullet
 from alien import Alien1, Alien2, Alien3
+from game_stats import GameStats
+from os import path
 
 # sounds
 pygame.init()
 fire_sound = pygame.mixer.Sound('Sounds/shot.wav')
 enemy_hit = pygame.mixer.Sound("Sounds/hit.ogg")
 player_hit = pygame.mixer.Sound("Sounds/player_hit.wav")
+
+# High Score file
+HS_FILE = "highscore.txt"
 
 
 def ship_hit(ai_settings, screen, stats, sb, ship, aliens, bullets):
@@ -36,7 +41,7 @@ def ship_hit(ai_settings, screen, stats, sb, ship, aliens, bullets):
         pygame.mouse.set_visible(True)
 
 
-def check_keydown_events(event, ai_settings, screen, ship, bullets):
+def check_keydown_events(event, ai_settings, screen, ship, bullets, stats, sb, play_button, aliens):
     """Respond to keypresses."""
     if event.key == pygame.K_RIGHT:
         ship.moving_right = True
@@ -46,6 +51,10 @@ def check_keydown_events(event, ai_settings, screen, ship, bullets):
         fire_bullet(ai_settings, screen, ship, bullets)
     elif event.key == pygame.K_q:
         sys.exit()
+    elif event.type == pygame.MOUSEBUTTONDOWN:
+        mouse_x, mouse_y = pygame.mouse.get_pos()
+        check_play_button(ai_settings, screen, stats, sb, play_button,
+                          ship, aliens, bullets, mouse_x, mouse_y)
 
 
 def fire_bullet(ai_settings, screen, ship, bullets):
@@ -71,7 +80,7 @@ def check_events(ai_settings, screen, stats, sb, play_button, ship, aliens, bull
         if event.type == pygame.QUIT:
             sys.exit()
         elif event.type == pygame.KEYDOWN:
-            check_keydown_events(event, ai_settings, screen, ship, bullets)
+            check_keydown_events(event, ai_settings, screen, ship, bullets, stats, sb, play_button, aliens)
         elif event.type == pygame.KEYUP:
             check_keyup_events(event, ship)
 
@@ -104,6 +113,20 @@ def check_play_button(ai_settings, screen, stats, sb, play_button, ship,
         # Create a new fleet and center the ship.
         create_fleet(ai_settings, screen, ship, aliens)
         ship.center_ship()
+
+
+def check_score_button(stats, score_button, mouse_x, mouse_y):
+    """Show high scores when the player clicks Play."""
+    button_clicked = score_button.rect.collidepoint(mouse_x, mouse_y)
+    if button_clicked and not stats.game_active:
+        directory = path.dirname(__file__)
+        with open(path.join(directory, HS_FILE), 'w') as f:
+            try:
+                GameStats.high_score = int(f.read())
+                raise RuntimeError("Empty highscores list. Generating...")
+            except Exception as e:
+                GameStats.high_score = 0
+                print(e, "was handled")
 
 
 def update_screen(ai_settings, screen, stats, sb, ship, aliens, bullets, play_button):
@@ -153,6 +176,9 @@ def check_bullet_alien_collisions(ai_settings, screen, stats, sb, ship, aliens, 
         for aliens in collisions.values():
             stats.score += ai_settings.alien_points * len(aliens)
             sb.prep_score()
+            if stats.score == 500:
+                pygame.mixer.music.load("Sounds/aliens.wav")
+                pygame.mixer.music.play()
         check_high_score(stats, sb)
 
     if len(aliens) == 0:
