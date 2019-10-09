@@ -1,12 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="25a56892-31c1-4b63-ba49-bf47ebd2ea65" name="Default Changelist" comment="updated a bunch">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+    <list default="true" id="25a56892-31c1-4b63-ba49-bf47ebd2ea65" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Images/Alien1-3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Images/Alien1-4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Images/Alien1-5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Images/Alien2-3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Images/Alien2-4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Images/Alien2-5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Images/Alien3-3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Images/Alien3-4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Images/Alien3-5.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/alien.py" beforeDir="false" afterPath="$PROJECT_DIR$/alien.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/alien_invasion.py" beforeDir="false" afterPath="$PROJECT_DIR$/alien_invasion.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/button.py" beforeDir="false" afterPath="$PROJECT_DIR$/button.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/game_functions.py" beforeDir="false" afterPath="$PROJECT_DIR$/game_functions.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/settings.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -31,11 +39,11 @@
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\admin\PycharmProjects\AlienInvasion\Images" />
+    <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\admin\PycharmProjects\AlienInvasion\Sounds" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\admin\PycharmProjects\AlienInvasion\Images" />
       <recent name="C:\Users\admin\PycharmProjects\AlienInvasion\Sounds" />
     </key>
   </component>
@@ -192,7 +200,14 @@
       <option name="project" value="LOCAL" />
       <updated>1570233135620</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="more updates">
+      <created>1570554746944</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1570554746944</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -211,6 +226,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="changed ship, background" />
     <MESSAGE value="updated a bunch" />
-    <option name="LAST_COMMIT_MESSAGE" value="updated a bunch" />
+    <MESSAGE value="more updates" />
+    <option name="LAST_COMMIT_MESSAGE" value="more updates" />
   </component>
 </project>
